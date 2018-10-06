@@ -1,9 +1,9 @@
 import React from 'react';
-import '../css/styles.css';
+import '../scss/styles.scss';
 
 export default class Title extends React.Component {
     render() {
-        return(
+        return (
             <div className='title'>
                 <h1 className='inline name'>furkan</h1>
                 <h1 className='inline surname'>bozdag</h1>
