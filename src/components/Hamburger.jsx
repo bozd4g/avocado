@@ -23,10 +23,10 @@ export default class Hamburger extends React.Component {
 
     render() {
         return (
-            <div class="wrapper-menu" onClick={this.onClick}>
-                <div class="line-menu half start"></div>
-                <div class="line-menu"></div>
-                <div class="line-menu half end"></div>
+            <div className='wrapper-menu' onClick={this.onClick}>
+                <div className='line-menu half start'></div>
+                <div className='line-menu'></div>
+                <div className='line-menu half end'></div>
             </div>
         );
     }

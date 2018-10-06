@@ -6,9 +6,11 @@
     width: 100vw;
 }
 
+/*#region Title*/
+
 .title {
-    color: white;
     position: sticky;
+    color: white;
     top: 5%;
     margin-left: 5%;
 }
@@ -27,3 +29,25 @@
 .title .inline.surname {
     font-weight: 800;
 }
+
+/*#endregion Title*/
+
+/*#region Image*/
+
+.image-area {
+    height: 100%;
+    width: 50%;
+    float: right;
+    z-index: -1;
+}
+.image-area .clip-mask {
+    opacity: 0.4;
+    height: 100%;
+    background: url('../images/p.jpeg');
+    -webkit-clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0% 50%);
+    clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0% 50%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*#endregion Image*/
