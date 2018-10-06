@@ -14,7 +14,7 @@ npm run build
 
 ## Interface
 
-![interface](https://github.com/bozd4g/avocado/blob/master/images/interface.png)
+![interface](https://github.com/bozd4g/avocado/blob/master/src/images/interface.png)
 
 
 The MIT License (MIT)
