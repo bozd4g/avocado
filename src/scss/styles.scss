@@ -64,17 +64,17 @@
 }
 .about .bigTitle {
     position: absolute;
-    top: 46%;
-    padding-left: 10%;
+    top: 36%;
+    padding-left: 7%;
     color: rgba(0, 0, 0, .15);
     z-index: 2;
     font-weight: 800;
-    font-size: 8em;
+    font-size: 9em;
     font-family: 'Montserrat', sans-serif;
 }
 .about .information {
     position: absolute;
-    top: 50%;
+    top: 40%;
     z-index: 3;
     color: white;
     font-size: 2.5em;
@@ -86,7 +86,7 @@
 }
 .about .information .second {
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 5vh;
 }
 .about .information p {
     font-size: .5em;
@@ -97,7 +97,7 @@
 }
 .about .information p a {
     text-decoration: none;
-    color: rgba($color: white, $alpha: .8);
+    color: rgba($color: white, $alpha: .7);
 }
 .about .information p a:hover {
     color: rgba($color: white, $alpha: 1);

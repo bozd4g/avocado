@@ -14,9 +14,9 @@ export default class Content extends React.Component {
                     <p>As you said, I'm Furkan.</p>
                     <p>If I have to introduce myself; I’m designing as hobby, coding as lovely
                         and sometimes writing something at somewhere like
-                        <b><a href={links.twitter}> twitter</a></b>, 
-                        <b><a href={links.medium}> medium</a></b> and
-                        <b><a href={links.github}> github</a></b>.</p>
+                        <b><a href={links.twitter} rel='noopener noreferrer' target='_blank'> twitter</a></b>, 
+                        <b><a href={links.medium} rel='noopener noreferrer' target='_blank'> medium</a></b> and
+                        <b><a href={links.github} rel='noopener noreferrer' target='_blank'> github</a></b>.</p>
                 </div>
             </div>
         )
