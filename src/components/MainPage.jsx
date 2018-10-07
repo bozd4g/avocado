@@ -4,6 +4,7 @@ import Hamburger from './Hamburger.jsx';
 import Image from './Image.jsx';
 import Popup from './Popup.jsx';
 import Content from './Content.jsx';
+import SocialIcons from './SocialIcons.jsx';
 import '../scss/styles.scss';
 
 export default class Mainpage extends React.Component {
@@ -20,7 +21,7 @@ export default class Mainpage extends React.Component {
                 medium: 'https://medium.com/@bozd4g',
                 spotify: 'https://open.spotify.com/user/bozd4g',
                 github: 'https://github.com/bozd4g',
-                email: 'me@furkanbozdag.com'
+                email: 'mailto:me@furkanbozdag.com'
             }
         };
 
@@ -52,6 +53,7 @@ export default class Mainpage extends React.Component {
                 <Title />
                 <Hamburger onClicked={this.onHamburgerClicked} />
                 <Content links={this.state.links} />
+                <SocialIcons links={this.state.links} />
                 <Popup popupDisplay={this.state.popupDisplay} />
             </div>
         );

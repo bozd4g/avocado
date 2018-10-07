@@ -108,6 +108,23 @@
 
 /*#endregion About*/
 
+.social {
+    position: absolute;
+    bottom: 3%;
+    left: 5%;
+    vertical-align: bottom;
+    width: 30%;
+}
+.social .icon {
+    color: rgba($color: #fff, $alpha: .6);
+    transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+}
+.social .icon:hover {
+    color: rgba($color: #fff, $alpha: 1);
+}
+
 .popup {
     background-color: rgba(0, 0, 0, .5);
     position: fixed;
