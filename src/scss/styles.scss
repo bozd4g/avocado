@@ -129,6 +129,8 @@
 
 /*#endregion Social*/
 
+/*#region Popup*/
+
 .popup {
     background-color: rgba(0, 0, 0, .6);
     position: fixed;
@@ -140,3 +142,56 @@
     visibility: hidden;
     transition: visibility 0.5s, opacity 0.5s linear;
 }
+.popup .posts {
+    position: absolute;
+    top: 20%;
+    left: 7%;
+    width: 93%;
+}
+.popup .posts .post {
+    display: block;
+    background: rgba($color: #fff, $alpha: .75);
+    padding: 1.2% 2%;
+    border-radius: 20px;
+    width: 50%;
+    margin-bottom: 2%;
+}
+.popup .posts .post a {
+    text-decoration: none;
+}
+.popup .posts .post a h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.9em;
+    font-weight: 800;
+    color: #464242;
+    width: 90%;
+    transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+}
+.popup .posts .post a h2:hover {
+    color: #000;
+}
+.popup .posts .post p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    margin-top: 1%;
+    color: #464242;
+    width: 80%;
+}
+.popup .posts .post p a {
+    font-weight: 800;
+    margin-left: 1%;
+    text-decoration: none;
+    color: #464242;
+    transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+}
+.popup .posts .post p a:hover {
+    color: #000;
+}
+
+/*#endregion Popup*/
+

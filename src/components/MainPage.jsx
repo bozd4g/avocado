@@ -7,7 +7,7 @@ import Content from './Content.jsx';
 import SocialIcons from './SocialIcons.jsx';
 import '../scss/styles.scss';
 
-export default class Mainpage extends React.Component {
+export default class MainPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,18 +22,22 @@ export default class Mainpage extends React.Component {
                 spotify: 'https://open.spotify.com/user/bozd4g',
                 github: 'https://github.com/bozd4g',
                 email: 'mailto:me@furkanbozdag.com'
-            }
+            },
+            colors: [
+                { first: '#dce35b', second: '#e100ff' },
+                { first: '#dce35b', second: '#45b649' },
+                { first: '#7f00ff', second: '#e100ff' },
+                { first: '#f12711', second: '#f5af19' },
+                { first: '#FDC830', second: '#F37335' },
+                { first: '#11998e', second: '#38ef7d' },
+                { first: '#4568DC', second: '#B06AB3' },
+            ]
         };
 
         this.onHamburgerClicked = this.onHamburgerClicked.bind(this);
     }
 
     onHamburgerClicked() {
-        if (!this.state.toggleStatus) {
-        }
-        else {
-        }
-
         this.setState({
             toggleStatus: !this.state.toggleStatus,
             popupDisplay: this.state.popupDisplay === 1 ? 0 : 1
@@ -43,8 +47,9 @@ export default class Mainpage extends React.Component {
     }
 
     render() {
+        var day = new Date().getDay();
         var mainStyle = {
-            background: `linear-gradient(45deg, ${'#dce35b'}, ${'#e100ff'})`
+            background: `linear-gradient(45deg, ${this.state.colors[day].first}, ${this.state.colors[day].second})`
         };
 
         return (
