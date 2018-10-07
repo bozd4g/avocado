@@ -9,10 +9,11 @@
 /*#region Title*/
 
 .title {
-    position: sticky;
+    position: fixed;
     color: white;
     top: 5%;
     margin-left: 5%;
+    z-index: 999;
 }
 .title .inline {
     display: inline-block;
@@ -48,6 +49,18 @@
     clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0% 50%);
     background-repeat: no-repeat;
     background-size: cover;
+    object-fit: cover;
 }
 
 /*#endregion Image*/
+
+.popup {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 99;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}

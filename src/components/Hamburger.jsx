@@ -4,21 +4,12 @@ import '../scss/hamburger.scss';
 export default class Hamburger extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            toggleStatus: false
-        };
+
         this.onClick = this.onClick.bind(this);
     }
 
     onClick() {
-        if (!this.state.toggleStatus) {
-        }
-        else {
-        }
-
-        this.setState({ toggleStatus: !this.state.toggleStatus });
-        var menu = document.querySelector('.wrapper-menu');
-        menu.classList.toggle('open');
+        this.props.onClicked();
     }
 
     render() {
