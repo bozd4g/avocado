@@ -5,6 +5,8 @@ import Image from './Image.jsx';
 import Popup from './Popup.jsx';
 import Content from './Content.jsx';
 import SocialIcons from './SocialIcons.jsx';
+import MediaQuery from 'react-responsive';
+import g from '../global.js';
 import '../scss/styles.scss';
 
 export default class MainPage extends React.Component {
@@ -54,7 +56,9 @@ export default class MainPage extends React.Component {
 
         return (
             <div className='main' style={mainStyle}>
-                <Image />
+                <MediaQuery query={g.minWidth}>
+                    <Image />
+                </MediaQuery>
                 <Title />
                 <Hamburger onClicked={this.onHamburgerClicked} />
                 <Content links={this.state.links} />

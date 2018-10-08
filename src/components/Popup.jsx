@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import MediaQuery from 'react-responsive';
+import g from '../global.js';
 import '../scss/styles.scss';
 
 export default class Popup extends React.Component {
@@ -47,13 +49,31 @@ export default class Popup extends React.Component {
         var rows = [];
         for (var i = 0; i < d.length; i++) {
             rows.push(
-                <div key={i} className='post'>
-                    <a href={d[i].guid}><h2>{this.replaceAll(d[i].title, '&amp', '&')}</h2></a>
-                    <p>{this.replaceAll(d[i].description.substring(0, 275), /<[^>]*>/, '')}..<a href={d[i].link}>read more</a></p>
+                <div key={i}>
+                    <MediaQuery query={g.maxWidth}>
+                        <div className='post' style={{ width: '96%', marginBottom: '7.5%'}}>
+                            <a href={d[i].guid} rel='noopener noreferrer' target='_blank'>
+                                <h2 style={{fontSize: '1.4em', width: '100%'}}>{this.replaceAll(d[i].title, '&amp', '&')}</h2>
+                            </a>
+                            <p style={{width: '100%'}}>{this.replaceAll(d[i].description.substring(0, 200), /<[^>]*>/, '')}..
+                                <a href={d[i].link} rel='noopener noreferrer' target='_blank'>read more</a>
+                            </p>
+                        </div>
+                    </MediaQuery>
+                    <MediaQuery query={g.minWidth}>
+                        <div className='post'>
+                            <a href={d[i].guid} rel='noopener noreferrer' target='_blank'>
+                                <h2>{this.replaceAll(d[i].title, '&amp', '&')}</h2>
+                            </a>
+                            <p>{this.replaceAll(d[i].description.substring(0, 275), /<[^>]*>/, '')}..
+                                <a href={d[i].link} rel='noopener noreferrer' target='_blank'>read more</a>
+                            </p>
+                        </div>
+                    </MediaQuery>
                 </div>
             );
 
-            if(rows.length >= 10)
+            if (rows.length >= 10)
                 break;
         }
 
@@ -74,9 +94,16 @@ export default class Popup extends React.Component {
         };
         return (
             <div className='popup' style={popupStyle}>
-                <div className='posts'>
-                    {this.state.posts}
-                </div>
+                <MediaQuery query={g.maxWidth}>
+                    <div className='posts' style={{left: '0', width: '100%'}}>
+                        {this.state.posts}
+                    </div>
+                </MediaQuery>
+                <MediaQuery query={g.minWidth}>
+                    <div className='posts'>
+                        {this.state.posts}
+                    </div>
+                </MediaQuery>
             </div>
         );
     }
