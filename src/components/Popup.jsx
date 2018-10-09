@@ -51,7 +51,7 @@ export default class Popup extends React.Component {
             rows.push(
                 <div key={i}>
                     <MediaQuery query={g.maxWidth}>
-                        <div className='post' style={{ width: '96%', marginBottom: '7.5%'}}>
+                        <div className='post' style={{ width: '94%', marginBottom: '10%', padding: '3%'}}>
                             <a href={d[i].guid} rel='noopener noreferrer' target='_blank'>
                                 <h2 style={{fontSize: '1.4em', width: '100%'}}>{this.replaceAll(d[i].title, '&amp', '&')}</h2>
                             </a>
@@ -65,7 +65,7 @@ export default class Popup extends React.Component {
                             <a href={d[i].guid} rel='noopener noreferrer' target='_blank'>
                                 <h2>{this.replaceAll(d[i].title, '&amp', '&')}</h2>
                             </a>
-                            <p>{this.replaceAll(d[i].description.substring(0, 275), /<[^>]*>/, '')}..
+                            <p>{this.replaceAll(d[i].description.substring(0, 400), /<[^>]*>/, '')}..
                                 <a href={d[i].link} rel='noopener noreferrer' target='_blank'>read more</a>
                             </p>
                         </div>
