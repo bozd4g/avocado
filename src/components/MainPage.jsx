@@ -46,6 +46,8 @@ export default class MainPage extends React.Component {
         });
         var menu = document.querySelector('.wrapper-menu');
         menu.classList.toggle('open');
+
+        this.popup.initializePosts();
     }
 
     render() {
@@ -63,7 +65,7 @@ export default class MainPage extends React.Component {
                 <Hamburger onClicked={this.onHamburgerClicked} />
                 <Content links={this.state.links} />
                 <SocialIcons links={this.state.links} />
-                <Popup popupDisplay={this.state.popupDisplay} />
+                <Popup ref={e=>this.popup = e} popupDisplay={this.state.popupDisplay} />
             </div>
         );
     };

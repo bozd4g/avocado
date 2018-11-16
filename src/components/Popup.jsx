@@ -11,9 +11,11 @@ export default class Popup extends React.Component {
         this.state = {
             posts: []
         };
+
+        this.initializePosts = this.initializePosts.bind(this);
     }
 
-    componentWillMount() {
+    initializePosts() {
         const lastCacheDate = localStorage.getItem('lastCacheDate');
         if (lastCacheDate != null) {
             const dateDiff = Math.round(Math.abs((new Date(lastCacheDate).getTime() - new Date().getTime()) / (24 * 3600 * 1000)));
