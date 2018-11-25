@@ -8,6 +8,7 @@ import SocialIcons from './SocialIcons.jsx';
 import MediaQuery from 'react-responsive';
 import g from '../global.js';
 import '../scss/styles.scss';
+import c from '../colors.json';
 
 export default class MainPage extends React.Component {
     constructor(props) {
@@ -24,16 +25,7 @@ export default class MainPage extends React.Component {
                 spotify: 'https://open.spotify.com/user/bozd4g',
                 github: 'https://github.com/bozd4g',
                 email: 'mailto:me@furkanbozdag.com'
-            },
-            colors: [
-                { first: '#dce35b', second: '#e100ff' },
-                { first: '#dce35b', second: '#45b649' },
-                { first: '#7f00ff', second: '#e100ff' },
-                { first: '#f12711', second: '#f5af19' },
-                { first: '#FDC830', second: '#F37335' },
-                { first: '#11998e', second: '#38ef7d' },
-                { first: '#4568DC', second: '#B06AB3' },
-            ]
+            }
         };
 
         this.onHamburgerClicked = this.onHamburgerClicked.bind(this);
@@ -51,11 +43,16 @@ export default class MainPage extends React.Component {
     }
 
     render() {
-        var day = new Date().getDay();
-        var mainStyle = {
-            background: `linear-gradient(45deg, ${this.state.colors[day].first}, ${this.state.colors[day].second})`
-        };
+        var now = new Date();
+        var start = new Date(now.getFullYear(), 0, 0);
+        var diff = now - start;
+        var oneDay = 1000 * 60 * 60 * 24;
+        var day = Math.floor(diff / oneDay);
 
+        var mainStyle = {
+            background: `linear-gradient(45deg, ${c[day].colors})`
+        };
+      
         return (
             <div className='main' style={mainStyle}>
                 <MediaQuery query={g.minWidth}>
