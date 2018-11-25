@@ -3,6 +3,7 @@ import axios from 'axios';
 import MediaQuery from 'react-responsive';
 import g from '../global.js';
 import '../scss/styles.scss';
+import ContentLoader from "react-content-loader"
 
 export default class Popup extends React.Component {
     constructor(props) {
@@ -16,6 +17,46 @@ export default class Popup extends React.Component {
     }
 
     initializePosts() {
+        if (this.state.posts.length < 4) {
+            var rows = [];
+            for (var i = 0; i < 4; i++)
+                rows.push(
+                    <div>
+                        <MediaQuery query={g.maxWidth}>
+                            <div className='post' style={{ minWidth: '94%', marginBottom: '10%', padding: '3%' }}>
+                                <ContentLoader
+                                    speed={2}
+                                    height={75}
+                                    primaryColor="#e3e3e3"
+                                    secondaryColor="#a8a8a8"
+                                    style={{ width: '100%' }}>
+                                    <rect x="0" y="7" width="60%" height="30%" />
+                                    <rect x="0" y="40" width="100%" height="15%" />
+                                    <rect x="0" y="60" width="70%" height="15%" />
+                                </ContentLoader>
+                            </div>
+                        </MediaQuery>
+                        <MediaQuery query={g.minWidth}>
+                            <div className='post'>
+                                <ContentLoader
+                                    speed={2}
+                                    height={50}
+                                    primaryColor="#e3e3e3"
+                                    secondaryColor="#a8a8a8"
+                                    style={{ width: '100%' }}>
+                                    <rect x="0" y="7" width="60%" height="20%" />
+                                    <rect x="0" y="30" width="100%" height="12%" />
+                                    <rect x="0" y="40" width="70%" height="12%" />
+                                </ContentLoader>
+                            </div>
+                        </MediaQuery>
+                    </div>
+                );
+            this.setState({
+                posts: rows
+            });
+        }
+
         const lastCacheDate = localStorage.getItem('lastCacheDate');
         if (lastCacheDate != null) {
             const dateDiff = Math.round(Math.abs((new Date(lastCacheDate).getTime() - new Date().getTime()) / (24 * 3600 * 1000)));
@@ -34,16 +75,20 @@ export default class Popup extends React.Component {
 
                     localStorage.setItem('lastCacheDate', new Date());
                     localStorage.setItem('cacheData', JSON.stringify(res.data));
-                    this.bindLastPosts(res.data.items.filter(function (e) {
-                        return e.categories.length > 0
-                    }));
+                    setTimeout(() => {
+                        this.bindLastPosts(res.data.items.filter(function (e) {
+                            return e.categories.length > 0
+                        }));
+                    }, 1500);
                 })
         }
         else {
             console.log("The data is coming from cache.")
-            this.bindLastPosts(data.items.filter(function (e) {
-                return e.categories.length > 0
-            }));
+            setTimeout(() => {
+                this.bindLastPosts(data.items.filter(function (e) {
+                    return e.categories.length > 0
+                }));
+            }, 1500);
         }
     }
 
@@ -53,11 +98,11 @@ export default class Popup extends React.Component {
             rows.push(
                 <div key={i}>
                     <MediaQuery query={g.maxWidth}>
-                        <div className='post' style={{ width: '94%', marginBottom: '10%', padding: '3%'}}>
+                        <div className='post' style={{ width: '94%', marginBottom: '10%', padding: '3%' }}>
                             <a href={d[i].guid} rel='noopener noreferrer' target='_blank'>
-                                <h2 style={{fontSize: '1.4em', width: '100%'}}>{this.replaceAll(d[i].title, '&amp', '&')}</h2>
+                                <h2 style={{ fontSize: '1.4em', width: '100%' }}>{this.replaceAll(d[i].title, '&amp', '&')}</h2>
                             </a>
-                            <p style={{width: '100%'}}>{this.replaceAll(d[i].description.substring(0, 200), /(<([^>]+)>)/, '')}..
+                            <p style={{ width: '100%' }}>{this.replaceAll(d[i].description.substring(0, 200), /(<([^>]+)>)/, '')}..
                                 <a href={d[i].link} rel='noopener noreferrer' target='_blank'>read more</a>
                             </p>
                         </div>
@@ -97,7 +142,7 @@ export default class Popup extends React.Component {
         return (
             <div className='popup' style={popupStyle}>
                 <MediaQuery query={g.maxWidth}>
-                    <div className='posts' style={{left: '0', width: '100%'}}>
+                    <div className='posts' style={{ left: '0', width: '100%' }}>
                         {this.state.posts}
                     </div>
                 </MediaQuery>
