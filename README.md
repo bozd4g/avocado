@@ -3,6 +3,7 @@ That repository has been made as a hobby. I'm developing that repository using R
 All lacks will `update` soon.
 
 [![HitCount](http://hits.dwyl.io/bozd4g/avocado.svg)](http://hits.dwyl.io/bozd4g/avocado)
+[![Build Status](https://travis-ci.org/bozd4g/avocado.svg?branch=master)](https://travis-ci.org/bozd4g/avocado)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://bozd4g.mit-license.org/)
 
 ## Clone & Download
