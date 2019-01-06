@@ -43,7 +43,7 @@ export default class MainPage extends React.Component {
 
   render() {
     var mainStyle = {
-      background: `linear-gradient(45deg, ${"#8E2DE2, #4A00E0"})`
+      background: `linear-gradient(45deg, ${"#A83279, #D38312"})`
     };
 
     return (
